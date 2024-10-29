@@ -1,6 +1,6 @@
 package com.piyal.rentread.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +31,24 @@ public class Rental {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    private LocalDateTime rentedAt;
-    private LocalDateTime returnedAt;
+    private LocalDate renternDate = LocalDate.now();
+    private LocalDate returnDate;
+
+    public void returnBook() {
+        this.returnDate = LocalDate.now();
+        book.setAvailable(true);
+    }
+
+    public void rentBook() {
+        this.returnDate = LocalDate.now();
+        book.setAvailable(false);
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
