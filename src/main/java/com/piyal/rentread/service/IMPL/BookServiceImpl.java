@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.piyal.rentread.dto.Bookdto;
 import com.piyal.rentread.model.Book;
 import com.piyal.rentread.repository.BookRepository;
 import com.piyal.rentread.service.BookService;
 
+@Service
 public class BookServiceImpl implements BookService {
 
     @Autowired

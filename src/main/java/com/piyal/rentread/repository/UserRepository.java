@@ -1,10 +1,13 @@
 package com.piyal.rentread.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.piyal.rentread.model.User;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.piyal.rentread.model.User;
+
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String userEmail);

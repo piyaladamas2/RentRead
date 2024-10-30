@@ -2,6 +2,7 @@ package com.piyal.rentread.service.IMPL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.piyal.rentread.dto.UserDto;
 import com.piyal.rentread.model.Role;
@@ -9,6 +10,7 @@ import com.piyal.rentread.model.User;
 import com.piyal.rentread.repository.UserRepository;
 import com.piyal.rentread.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

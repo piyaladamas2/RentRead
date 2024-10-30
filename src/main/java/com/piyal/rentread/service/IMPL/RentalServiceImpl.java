@@ -3,6 +3,7 @@ package com.piyal.rentread.service.IMPL;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.piyal.rentread.dto.Rentaldto;
 import com.piyal.rentread.model.Book;
@@ -13,6 +14,7 @@ import com.piyal.rentread.repository.RentalRepository;
 import com.piyal.rentread.repository.UserRepository;
 import com.piyal.rentread.service.RentalService;
 
+@Service
 public class RentalServiceImpl implements RentalService {
 
     @Autowired
