@@ -8,6 +8,6 @@ import com.piyal.rentread.model.Book;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    public List<Book> findByAvailableTrue();
+    public List<Book> findByAvailableBooks();
 
 }

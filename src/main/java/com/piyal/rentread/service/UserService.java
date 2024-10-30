@@ -1,8 +1,12 @@
 package com.piyal.rentread.service;
 
-import com.piyal.rentread.model.User;
+import com.piyal.rentread.dto.UserDto;
 
 public interface UserService {
 
-    public User registerUser(User user);
+    UserDto registerUser(UserDto userDto);
+
+    UserDto login(String email, String password);
+
+    UserDto getUserById(Long id);
 }

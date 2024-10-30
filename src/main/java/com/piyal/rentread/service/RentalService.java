@@ -1,8 +1,10 @@
 package com.piyal.rentread.service;
 
+import com.piyal.rentread.dto.Rentaldto;
+
 public interface RentalService {
 
-    public String rentBook(Long bookId, String userEmail);
+    Rentaldto rentBook(Long userId, Long bookId);
 
-    public String returnBook(Long bookId, String userEmail);
+    Rentaldto returnBook(Long id);
 }

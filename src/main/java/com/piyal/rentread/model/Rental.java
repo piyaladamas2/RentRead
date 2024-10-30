@@ -31,24 +31,6 @@ public class Rental {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    private LocalDate renternDate = LocalDate.now();
+    private LocalDate rentalDate = LocalDate.now();
     private LocalDate returnDate;
-
-    public void returnBook() {
-        this.returnDate = LocalDate.now();
-        book.setAvailable(true);
-    }
-
-    public void rentBook() {
-        this.returnDate = LocalDate.now();
-        book.setAvailable(false);
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

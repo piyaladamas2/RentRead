@@ -1,11 +1,18 @@
 package com.piyal.rentread.service;
 
 import java.util.List;
-import com.piyal.rentread.model.Book;
+
+import com.piyal.rentread.dto.Bookdto;
 
 public interface BookService {
 
-    public List<Book> getAllAvailableBooks();
+    List<Bookdto> getAllBooks();
 
-    public Book saveBook(Book book);
+    Bookdto addBook(Bookdto book);
+
+    Bookdto getBookById(Long id);
+
+    void deleteBook(Long id);
+
+    Bookdto updateBook(Long id, Bookdto book);
 }

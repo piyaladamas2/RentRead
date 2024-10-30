@@ -1,8 +1,16 @@
 package com.piyal.rentread.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class BookCreation {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Bookdto {
+
+    private Long id;
 
     @NotBlank(message = "Title is required")
     private String title;
@@ -12,5 +20,6 @@ public class BookCreation {
 
     private String genre;
 
-    private boolean available;
+    private boolean IsAvailable;
+
 }
