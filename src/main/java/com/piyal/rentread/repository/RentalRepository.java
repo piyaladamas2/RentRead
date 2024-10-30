@@ -10,5 +10,5 @@ public interface RentalRepository extends JpaRepository<Rental, Long> {
 
     Long countByUserAndReturnDateIsNull(Long userId);
 
-    Optional<Rental> findByRentalIdReturnDateIsNull(Long Id);
+    Optional<Rental> findByBookIdReturnDateIsNull(Long bookId);
 }

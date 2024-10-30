@@ -6,5 +6,5 @@ public interface RentalService {
 
     Rentaldto rentBook(Long userId, Long bookId);
 
-    Rentaldto returnBook(Long id);
+    Rentaldto returnBook(Long bookId);
 }

@@ -53,7 +53,7 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public Rentaldto returnBook(Long id) {
-        Rental rental = rentalRepository.findByRentalIdReturnDateIsNull(id)
+        Rental rental = rentalRepository.findByBookIdReturnDateIsNull(id)
                 .orElseThrow(() -> new RuntimeException("Rental not found or already returned"));
 
         rental.setReturnDate(LocalDate.now());
