@@ -1,6 +1,7 @@
 package com.piyal.rentread.dto;
 
 import com.piyal.rentread.model.Role;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -24,6 +25,9 @@ public class UserDto {
 
     @NotBlank(message = "Last name is required")
     private String lastName;
+
+    @NotBlank(message = "User name is required")
+    private String userName;
 
     @Size(min = 8, message = "Password must be at least 8 characters")
     @NotBlank(message = "Password is required")

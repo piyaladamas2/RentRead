@@ -10,6 +10,6 @@ import com.piyal.rentread.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByEmail(String userEmail);
+    Optional<User> findByUserName(String userName);
 
 }
