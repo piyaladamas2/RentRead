@@ -18,34 +18,34 @@ import java.util.List;
 import com.piyal.rentread.dto.Bookdto;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api")
 public class BookController {
 
     @Autowired
     private BookService bookService;
 
-    @PostMapping
+    @PostMapping("/admin/books")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Bookdto> createBook(@RequestBody Bookdto bookDto) {
         Bookdto createdBook = bookService.addBook(bookDto);
         return ResponseEntity.ok(createdBook);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/books/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Bookdto> updateBook(@PathVariable Long id, @RequestBody Bookdto bookDto) {
         Bookdto updatedBook = bookService.updateBook(id, bookDto);
         return ResponseEntity.ok(updatedBook);
     }
 
-    @GetMapping
-    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/user/books")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<Bookdto>> getAllBooks() {
         List<Bookdto> books = bookService.getAllBooks();
         return ResponseEntity.ok(books);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/books/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);

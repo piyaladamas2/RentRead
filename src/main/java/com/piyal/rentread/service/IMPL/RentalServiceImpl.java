@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.piyal.rentread.dto.Rentaldto;
 import com.piyal.rentread.model.Book;
 import com.piyal.rentread.model.Rental;
-import com.piyal.rentread.model.User;
+import com.piyal.rentread.model.BookUser;
 import com.piyal.rentread.repository.BookRepository;
 import com.piyal.rentread.repository.RentalRepository;
-import com.piyal.rentread.repository.UserRepository;
+import com.piyal.rentread.repository.BookUserRepository;
 import com.piyal.rentread.service.RentalService;
 
 @Service
@@ -21,14 +21,14 @@ public class RentalServiceImpl implements RentalService {
     private RentalRepository rentalRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private BookUserRepository userRepository;
 
     @Autowired
     private BookRepository bookRepository;
 
     @Override
     public Rentaldto rentBook(Long userId, Long bookId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        BookUser user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new RuntimeException("Book not found"));
         if (!book.isAvailable()) {
             throw new RuntimeException("Book is not available for rent");

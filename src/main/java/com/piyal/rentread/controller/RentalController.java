@@ -13,14 +13,14 @@ import com.piyal.rentread.dto.Rentaldto;
 import com.piyal.rentread.service.RentalService;
 
 @RestController
-@RequestMapping("/api/rentals")
+@RequestMapping("/api/user")
 public class RentalController {
 
     @Autowired
     private RentalService rentalService;
 
     @PostMapping("/books/{bookId}/rent")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Rentaldto> rentBook(@PathVariable Long bookId,
             @RequestParam Long userId) {
         Rentaldto rentalDto = rentalService.rentBook(userId, bookId);
@@ -28,7 +28,7 @@ public class RentalController {
     }
 
     @PostMapping("/books/{bookId}/return")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Rentaldto> returnBook(@PathVariable Long bookId, @RequestParam Long userId) {
         Rentaldto rentalDto = rentalService.returnBook(bookId);
         return ResponseEntity.ok(rentalDto);

@@ -8,25 +8,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.piyal.rentread.dto.UserDto;
-import com.piyal.rentread.service.UserService;
+import com.piyal.rentread.dto.BookUserDto;
+import com.piyal.rentread.service.BookUserService;
 
 @RestController
 @RequestMapping("api/users")
 public class UserController {
 
     @Autowired
-    UserService userService;
+    BookUserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto) {
-        UserDto createdUser = userService.registerUser(userDto);
+    public ResponseEntity<BookUserDto> registerUser(@RequestBody BookUserDto userDto) {
+        BookUserDto createdUser = userService.registerUser(userDto);
         return ResponseEntity.ok(createdUser);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserDto> login(@RequestParam String email, @RequestParam String password) {
-        UserDto user = userService.login(email, password);
+    public ResponseEntity<BookUserDto> login(@RequestParam String email, @RequestParam String password) {
+        BookUserDto user = userService.login(email, password);
         return user != null ? ResponseEntity.ok(user) : ResponseEntity.status(401).build();
     }
 
